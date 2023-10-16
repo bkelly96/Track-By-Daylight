@@ -178,4 +178,4 @@ Addon id - PK Not Null (our side)
 Addon Name - Not Null (Tricky Side)
 Add On Role - Survivor/Killer
 
-ERD - Complete Tables and Finalize [x] 2.5 hours - Actual
+ERD - Complete Tables and Finalize [x] (2.5 hours - Actual) (2 hours Estimated)
