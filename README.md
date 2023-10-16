@@ -24,13 +24,13 @@ Creating an application where a gamer can record information such as which chara
 
 ## 4. High Level Requirement
 
->- Create a Trial  (Admin, User)
->- Edit a Trial (Admin)
->- Delete a Trial (Admin)
+>- Create a Match  (Admin, User)
+>- Edit a Match (Admin)
+>- Delete a Match (Admin)
 >- Apply for an account (authenticated)
 >- View Stats (Admin, Member)
 
-> ### Create a Trial
+> ### Create a Match
 > - Choose their role (Survivor or Killer)
 > - Choose their character
 > - select the map they played
@@ -39,10 +39,10 @@ Creating an application where a gamer can record information such as which chara
 > - select if their was anger in the Post Game Chat
 > - Record additional notes
 
-> ### Edit a Trial
+> ### Edit a Match
 > **Pre-condition** Admin must be logged in
 
-> ### Delete a Trial
+> ### Delete a Match
 > **Pre-condition** Admin must be logged in
 
 > ### Create an Account
