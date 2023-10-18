@@ -66,24 +66,24 @@ As a User I can Record a Trial -
 
 
 ### Database - MySQL
-> ERD - Complete Tables and Finalize [x] (2.5 hours - Actual) (2 hours Estimated)
-> Create Tables [x] (1.5 hours - Actual) (2 hours Estimated)
-> Populate Table with data [x] - (2 hours - Actual) (2 hours Estimated)
-> Create Test Data and Set Known Good State [x] - (.5 hours - Actual) (1 hour Estimated)
+>- ERD - Complete Tables and Finalize [x] (2.5 hours - Actual) (2 hours Estimated)
+>- Create Tables [x] (1.5 hours - Actual) (2 hours Estimated)
+>- Populate Table with data [x] - (2 hours - Actual) (2 hours Estimated)
+>- Create Test Data and Set Known Good State [x] - (.5 hours - Actual) (1 hour Estimated)
 
-### Security (3 Hours Estimate)(1.5 Hours Actual)-
-> Create Repository Layer [x]
-> Create JDBC Layer [x]
-> Create Service Layer[x]
-> Create Controller [x]
-> Create App User Model [x]
-> Create Jwt Converter [x]
-> Create JwtRequestFilter [x]
-> Create Security Config [x]
+### Security (3 Hours Estimate)(1.5 Hours Actual)
+>- Create Repository Layer [x]
+>- Create JDBC Layer [x]
+>- Create Service Layer[x]
+>- Create Controller [x]
+>- Create App User Model [x]
+>- Create Jwt Converter [x]
+>- Create JwtRequestFilter [x]
+>- Create Security Config [x]
 
 ### Database Layer
-> Define Models
-> Understand the RowMapper
+>- Define Models
+>- Understand the RowMapper
 
 ### Service Layer
 ### Controller Layer
