@@ -1,7 +1,7 @@
 package org.track_by_daylight.data;
 
 
-import org.track_by_daylight.mapper.AppUserMapper;
+import org.track_by_daylight.data.mappers.AppUserMapper;
 import org.track_by_daylight.models.AppUser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;

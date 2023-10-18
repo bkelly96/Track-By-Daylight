@@ -1,4 +1,4 @@
-package org.track_by_daylight.mapper;
+package org.track_by_daylight.data.mappers;
 
 import org.track_by_daylight.models.AppUser;
 import org.springframework.jdbc.core.RowMapper;

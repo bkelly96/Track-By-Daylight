@@ -1,0 +1,11 @@
+
+l	java:S116"QRename this field "ISSUER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã¥Ý~8¾Øæú³1
+~	java:S116"]Rename this field "EXPIRATION_MINUTES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(û¥úùÿÿÿÿ8¾Øæú³1
+x	java:S116"\Rename this field "EXPIRATION_MILLIS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ‹ ’8¾Øæú³1
+=
+java:S1170"!Make this final field static too.(ã¥Ý~8¾Øæú³1
+C
+java:S1170"!Make this final field static too.(û¥úùÿÿÿÿ8¾Øæú³1
+>
+java:S1170"!Make this final field static too.(ˆ‹ ’8¾Øæú³1
+L	java:S106?"+Replace this use of System.out by a logger.(¨¶ÑÍþÿÿÿÿ8ÉØæú³1
