@@ -62,120 +62,28 @@ As a User I can Sign Up for an Account -
 
 As a User I can Sign into an Account - 
 
-As a User I can Record a Match -
-
-User Table -
-User Id -
-Password - 
-
-Matches - 
-Match id - 
-Userid
-Map - Name
-Map - Realm
-Killer Character
-Killer Perk 1
-Killer Perk 2
-Killer Perk 3
-Killer Perk 4
-Add on 1
-Add on 2
-Survivor 1 Character
-S1 - Perk 1
-S1 - Perk 2
-S1 - Perk 3
-S1 - Perk 4
-Item -
-Add on 1
-Add on 2
-Survivor 2 Character
-S2 - Perk 1
-S2 - Perk 2
-S2 - Perk 3
-S2 - Perk 4
-Item -
-Add on 1
-Add on 2
-Survivor 3 Character
-S3 - Perk 1
-S3 - Perk 2
-S3 - Perk 3
-S3 - Perk 4
-Item -
-Add on 1
-Add on 2
-Survivor 4 Character
-S4 - Perk 1
-S4 - Perk 2
-S4 - Perk 3
-S4 - Perk 4
-Item -
-Add on 1
-Add on 2
-Date -
-Salt -
-
-Matches -
-Match Id - Not Null 
-User Id - Not Null
-Date - Not Null
-Salt - yes/no
-
-Map - 
-Map Id - Not Null
-Match Id - Not Null
-
-Killer - 
-Killer Id - int PK
-Match Id - Not Null
-Killer Name - Not Null
-isPlayer - 
-
-Perk 1 - 
-Perk 2 - 
-Perk 3 - 
-Perk 4 - 
-Offering - 
-Add on 1 -
-Add on 2 - 
-isPlayer - 
+As a User I can Record a Trial -
 
 
-Survivor - 
-Survivor Id - int PK
-Survivor Name - Not Null
-Survive? - 
-isPlayer -
+### Database - MySQL
+>- ERD - Complete Tables and Finalize [x] (2.5 hours - Actual) (2 hours Estimated)
+>- Create Tables [x] (1.5 hours - Actual) (2 hours Estimated)
+>- Populate Table with data [x] - (2 hours - Actual) (2 hours Estimated)
+>- Create Test Data and Set Known Good State [x] - (.5 hours - Actual) (1 hour Estimated)
 
-Offering - 
-Perk 1 - 
-Perk 2 - 
-Perk 3 - 
-Perk 4 - 
-Item - 
-Add on 1 -
-Add on 2 - 
+### Security (3 Hours Estimate)(1.5 Hours Actual)
+>- Create Repository Layer [x]
+>- Create JDBC Layer [x]
+>- Create Service Layer[x]
+>- Create Controller [x]
+>- Create App User Model [x]
+>- Create Jwt Converter [x]
+>- Create JwtRequestFilter [x]
+>- Create Security Config [x]
 
+### Database Layer
+>- Define Models
+>- Understand the RowMapper
 
-Perk:
-Match Id - Not Null 
-Perk Id - int auto increment
-Perk name - Varchar (exists in Tricky)
-
-Item: 
-item id - Not Null (our side)
-Survivor id - Not Null (our side)
-Item name - 
-Add on id - 
-
-Offerings:
-Offering id - 
-Offering Name - 
-
-
-Addon: 
-Addon id - PK Not Null (our side)
-Addon Name - Not Null (Tricky Side)
-Add On Role - Survivor/Killer
-
-ERD - Complete Tables and Finalize [x] (2.5 hours - Actual) (2 hours Estimated)
+### Service Layer
+### Controller Layer
