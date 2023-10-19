@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers("/create_account").permitAll()
                 .antMatchers(HttpMethod.GET,
-                        "/order").permitAll()
+                        "/api/offerings", "/api/perks", "/api/addons", "/api/items").permitAll()
                 .antMatchers(HttpMethod.GET,
                         "/sighting", "/sighting/*").permitAll()
                 .antMatchers(HttpMethod.POST,

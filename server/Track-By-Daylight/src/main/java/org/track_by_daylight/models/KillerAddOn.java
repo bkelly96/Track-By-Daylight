@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class KillerAddOn {
 
-    public int killerAddOn;
+    public int killerAddOnId;
 
     public int killerId;
 
@@ -13,18 +13,18 @@ public class KillerAddOn {
     public KillerAddOn() {
     }
 
-    public KillerAddOn(int killerAddOn, int killerId, AddOn addOn) {
-        this.killerAddOn = killerAddOn;
+    public KillerAddOn(int killerAddOnId, int killerId, AddOn addOn) {
+        this.killerAddOnId = killerAddOnId;
         this.killerId = killerId;
         this.addOn = addOn;
     }
 
-    public int getKillerAddOn() {
-        return killerAddOn;
+    public int getKillerAddOnId() {
+        return killerAddOnId;
     }
 
-    public void setKillerAddOn(int killerAddOn) {
-        this.killerAddOn = killerAddOn;
+    public void setKillerAddOnId(int killerAddOnId) {
+        this.killerAddOnId = killerAddOnId;
     }
 
     public int getKillerId() {
@@ -48,11 +48,11 @@ public class KillerAddOn {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KillerAddOn that = (KillerAddOn) o;
-        return killerAddOn == that.killerAddOn && killerId == that.killerId && Objects.equals(addOn, that.addOn);
+        return killerAddOnId == that.killerAddOnId && killerId == that.killerId && Objects.equals(addOn, that.addOn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(killerAddOn, killerId, addOn);
+        return Objects.hash(killerAddOnId, killerId, addOn);
     }
 }
