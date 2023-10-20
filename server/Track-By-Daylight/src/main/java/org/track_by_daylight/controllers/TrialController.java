@@ -29,12 +29,12 @@ public class TrialController {
         return service.findAll();
     }
 
-    @GetMapping
-    public ResponseEntity<Trial> findById(@PathVariable int trialId) {
-        List<Trial> trial = service.findById(trialId);
-        if (trial == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return ResponseEntity.ok(List<trial>);
-    }
+//    @GetMapping
+//    public ResponseEntity<Trial> findById(@PathVariable int trialId) {
+//        List<Trial> trial = service.findById(trialId);
+//        if (trial == null) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//        return ResponseEntity.ok(List<trial>);
+//    }
 }

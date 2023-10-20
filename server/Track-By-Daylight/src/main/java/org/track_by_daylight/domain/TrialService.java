@@ -17,6 +17,6 @@ public class TrialService {
 
     public List<Trial> findAll() {return repository.findAll(); }
 
-    public List<Trial> findById(int trialId) {
-    }
+//    public List<Trial> findById(int trialId) {
+//    }
 }
