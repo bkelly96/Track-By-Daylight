@@ -81,9 +81,16 @@ As a User I can Record a Trial -
 >- Create JwtRequestFilter [x]
 >- Create Security Config [x]
 
+### Create Models (2 hours Estimate) (1 Hours Actual)
+>- Create Models for all Tables [x]
+
 ### Database Layer
->- Define Models
->- Understand the RowMapper
+>- Survivor Tables (2 Hours Estimate) (1.75 Hours Actual)
+>- Killer Tables (1 Hour Estimate) (.6 Hours Actual)
+>- Map and Trial Tables (1 Hour Estimate) (.5 Hours Actual)
 
 ### Service Layer
+>- Offering, Add On, Item, Perk [x] (1 Hour Estimate) (1.5 Hours Actual)
+
 ### Controller Layer
+>- Offering, Add On, Item, Perk [x] (1 Hour Estimate) (1.5 Hours Actual)
