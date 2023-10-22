@@ -1,92 +1,82 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, useEffect } from "react";
-import jwtDecode from "jwt-decode";
 
-const LOCAL_STORAGE_TOKEN_KEY = "trackByDaylightToken";
+import logo from './logo.svg';
+import { useEffect, useState, useCallback } from "react";
+import { refreshToken, logout } from "./services/AuthAPI";
+import LoginPage from './components/LoginPage';
+import NotFound from "./components/NotFound";
+import AuthContext from "./contexts/AuthContext"
+import ProfilePage from './components/ProfilePage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+
+const TIMEOUT_MILLISECONDS = 14 * 60 * 1000;
 
 function App() {
+  const [user, setUser] = useState();
+  const [initialized, setInitialized] = useState(false);
 
-  const [user, setUser] = useState(null);
-  const [restoreLoginAttemptCompleted, setRestoreLoginAttemptCompleted] = useState(false);
-
-
-  
-  useEffect(() => {
-    const token = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
-    if (token) {
-      login(token);
-    }
-    setRestoreLoginAttemptCompleted(true);
+  const resetUser = useCallback(() => {
+    refreshToken()
+      .then((user) => {
+        setUser(user);
+        setTimeout(resetUser, TIMEOUT_MILLISECONDS);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => setInitialized(true));
   }, []);
 
-  
-  const login = (token) => {
-    localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
+  useEffect(() => {
+    resetUser();
+  }, [resetUser]);
 
-    // Decode the token
-    const { sub: username, authorities: authoritiesString } = jwtDecode(token);
-  
-    // Split the authorities string into an array of roles
-    const roles = authoritiesString.split(',');
-  
-    // Create the "user" object
-    const user = {
-      username,
-      roles,
-      token,
-      hasRole(role) {
-        return this.roles.includes(role);
+  const auth = {
+    user: user,
+    handleLoggedIn(user) {
+      setUser(user);
+      setTimeout(resetUser, TIMEOUT_MILLISECONDS);
+    },
+    hasAuthority(authority) {
+      return user?.authorities.includes(authority);
+    },
+    logout() {
+      logout();
+      setUser(null);
+    },
+  };
+
+  if (!initialized) {
+    return null;
+  }
+
+  const renderWithAuthority = (Component, ...authorities) => {
+    for (let authority of authorities) {
+      if (auth.hasAuthority(authority)) {
+        return <Component />;
       }
-    };
-
-        // Log the user for debugging purposes
-        console.log(user);
-  
-        // Update the user state
-        setUser(user);
-      
-        // Return the user to the caller
-        return user;
-      };
-
-      const logout = () => {
-        setUser(null);
-        localStorage.removeItem(LOCAL_STORAGE_TOKEN_KEY);
-      };
-    
-      const auth = {
-        user: user ? { ...user } : null,
-        login,
-        logout
-      };
-
-            // If we haven't attempted to restore the login yet...
-      // then don't render the App component
-      if (!restoreLoginAttemptCompleted) {
-        return null;
-      }
-
-      
-  
+    }
+    return <NotFound />;
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <AuthContext.Provider value={auth}>
+    <Router>
+      <main>
+      <Routes>
+      <Route path='/' element={<LoginPage/>} />
+      <Route path='/profile' element={ <ProfilePage/>} />
+      <Route
+       path='/profile'
+       element={renderWithAuthority(ProfilePage, "USER", "ADMIN")}
+      />
+      <Route path='*' element={<NotFound/>} />
+      </Routes>
+      </main>
+    </Router>
+    </AuthContext.Provider>
+   </>
   );
 }
 

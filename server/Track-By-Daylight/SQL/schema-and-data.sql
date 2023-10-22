@@ -1,6 +1,5 @@
 drop database if exists Track_By_Daylight;
 create database Track_By_Daylight;
-
 use Track_By_Daylight;
 
 
