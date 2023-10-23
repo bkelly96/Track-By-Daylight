@@ -1,5 +1,6 @@
 package org.track_by_daylight.security;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -10,6 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@ConditionalOnWebApplication
 public class SecurityConfig {
 
     private final JwtConverter converter;
@@ -38,7 +40,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET,
                         "/api/offerings", "/api/perks", "/api/addons", "/api/items").permitAll()
                 .antMatchers(HttpMethod.GET,
-                        "/sighting", "/sighting/*").permitAll()
+                        "/api/trials/*", "/api/trials/account/*").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.POST,
                         "/sighting").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.PUT,

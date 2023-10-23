@@ -53,6 +53,12 @@ select map_id, map_name, realm_name, trial_id from map;
 #Trial get Trials
 select trial_id, date, salt, app_user_id from trial;
 
+##select all trials for a user
+select t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name, m.trial_id
+from trial t 
+inner join map m on m.trial_id = t.trial_id
+where t.app_user_id = 1;
+
 ## find match by id on the front end - hook up the front end and back end
 
 ## query independently, add the items by survivor, add the item by killer 1. select survivor, s item, s add on, s perk where match id = 1, reference Agency

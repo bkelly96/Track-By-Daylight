@@ -20,7 +20,7 @@ public class MapsJdbcTemplateRepository implements MapRepository {
     public List<Map> findAll() {
 
         final String sql = """
-                select map_id, map_name, realm_name, trial_id from map;
+                select map_id, map_name, realm_name from map;
                               """;
 
         return jdbcTemplate.query(sql, new MapMapper());

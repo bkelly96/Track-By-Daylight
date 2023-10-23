@@ -2,10 +2,14 @@
 import logo from './logo.svg';
 import { useEffect, useState, useCallback } from "react";
 import { refreshToken, logout } from "./services/AuthAPI";
-import LoginPage from './components/LoginPage';
+import LoginPage from "./components/LoginPage";
 import NotFound from "./components/NotFound";
 import AuthContext from "./contexts/AuthContext"
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from "./components/ProfilePage";
+
+
+
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -67,11 +71,11 @@ function App() {
       <Routes>
       <Route path='/' element={<LoginPage/>} />
       <Route path='/profile' element={ <ProfilePage/>} />
+      <Route path='*' element={<NotFound/>} />
       <Route
        path='/profile'
        element={renderWithAuthority(ProfilePage, "USER", "ADMIN")}
       />
-      <Route path='*' element={<NotFound/>} />
       </Routes>
       </main>
     </Router>

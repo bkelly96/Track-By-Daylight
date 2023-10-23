@@ -15,6 +15,9 @@ public Trial mapRow(ResultSet resultSet, int i) throws SQLException {
         trial.setTrialId(resultSet.getInt("trial_id"));
         trial.setDate(resultSet.getDate("date"));
         trial.setSalt(resultSet.getBoolean("salt"));
+
+        MapMapper mapMapper = new MapMapper();
+        trial.setMap(mapMapper.mapRow(resultSet, i));
         return trial;
         }
 }

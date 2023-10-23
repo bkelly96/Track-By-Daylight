@@ -10,16 +10,13 @@ public class Map {
 
     public String realmName;
 
-    public int trialId;
-
     public Map() {
     }
 
-    public Map(int mapId, String mapName, String realmName, int trialId) {
+    public Map(int mapId, String mapName, String realmName) {
         this.mapId = mapId;
         this.mapName = mapName;
         this.realmName = realmName;
-        this.trialId = trialId;
     }
 
     public int getMapId() {
@@ -46,24 +43,17 @@ public class Map {
         this.realmName = realmName;
     }
 
-    public int getTrialId() {
-        return trialId;
-    }
-
-    public void setTrialId(int trialId) {
-        this.trialId = trialId;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Map map = (Map) o;
-        return mapId == map.mapId && trialId == map.trialId && Objects.equals(mapName, map.mapName) && Objects.equals(realmName, map.realmName);
+        return mapId == map.mapId && Objects.equals(mapName, map.mapName) && Objects.equals(realmName, map.realmName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mapId, mapName, realmName, trialId);
+        return Objects.hash(mapId, mapName, realmName);
     }
 }

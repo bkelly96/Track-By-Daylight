@@ -43,4 +43,29 @@ public class TrialJdbcTemplateRepositoryTest {
         assertTrue(trials.stream()
                 .anyMatch(o -> o.getTrialId() == 1 && o.getDate().before(currentDate)));
     }
+
+    @Test
+    void shouldFindById() {
+        List<Trial> trials = repository.findByUserId(1);
+
+        Date currentDate = new Date(3000,12,12);
+
+        assertTrue(trials.size() ==1);
+        assertTrue(trials.stream()
+                .anyMatch(o -> o.getTrialId() == 1 && o.getDate().before(currentDate)));
+    }
+
+    @Test
+    void shouldFindByUsername(){
+
+        String username = "john@smith.com";
+
+        List<Trial> trials = repository.findByUsername(username);
+
+        Date currentDate = new Date(3000,12,12);
+
+        assertTrue(trials.size() ==1);
+        assertTrue(trials.stream()
+                .anyMatch(o -> o.getTrialId() == 1 && o.getDate().before(currentDate)));
+    }
 }

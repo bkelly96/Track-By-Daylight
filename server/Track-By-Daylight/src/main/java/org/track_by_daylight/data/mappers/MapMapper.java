@@ -16,8 +16,6 @@ public class MapMapper implements RowMapper<Map> {
         map.setMapId(resultSet.getInt("map_id"));
         map.setMapName(resultSet.getString("map_name"));
         map.setRealmName(resultSet.getString("realm_name"));
-        map.setTrialId(resultSet.getInt("trial_id"));
-
         return map;
     }
 }

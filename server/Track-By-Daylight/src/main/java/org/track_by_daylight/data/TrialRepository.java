@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface TrialRepository {
     List<Trial> findAll();
+
+    List<Trial> findByUserId(int userId);
+
+    List<Trial> findByUsername(String username);
 }

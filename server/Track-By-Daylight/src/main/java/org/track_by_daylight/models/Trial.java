@@ -13,14 +13,17 @@ public class Trial {
 
     public int userId;
 
+    public Map map;
+
     public Trial() {
     }
 
-    public Trial(int trialId, Date date, boolean salt, int userId) {
+    public Trial(int trialId, Date date, boolean salt, int userId, Map map) {
         this.trialId = trialId;
         this.date = date;
         this.salt = salt;
         this.userId = userId;
+        this.map = map;
     }
 
     public int getTrialId() {
@@ -55,16 +58,24 @@ public class Trial {
         this.userId = userId;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trial trial = (Trial) o;
-        return trialId == trial.trialId && salt == trial.salt && userId == trial.userId && Objects.equals(date, trial.date);
+        return trialId == trial.trialId && salt == trial.salt && userId == trial.userId && Objects.equals(date, trial.date) && Objects.equals(map, trial.map);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(trialId, date, salt, userId);
+        return Objects.hash(trialId, date, salt, userId, map);
     }
 }

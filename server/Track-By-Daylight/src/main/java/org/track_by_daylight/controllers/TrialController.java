@@ -3,10 +3,7 @@ package org.track_by_daylight.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.track_by_daylight.domain.AddOnService;
 import org.track_by_daylight.domain.TrialService;
 import org.track_by_daylight.models.AddOn;
@@ -29,12 +26,15 @@ public class TrialController {
         return service.findAll();
     }
 
-//    @GetMapping
-//    public ResponseEntity<Trial> findById(@PathVariable int trialId) {
-//        List<Trial> trial = service.findById(trialId);
-//        if (trial == null) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        return ResponseEntity.ok(List<trial>);
-//    }
+    @GetMapping("/{userId}")
+    public List<Trial> findByUserId(@PathVariable int userId) {
+
+        return service.findByUserId(userId);
+    }
+
+    @GetMapping("/account/{username}")
+    public List<Trial> findByUsername(@PathVariable String username) {
+
+        return service.findByUsername(username);
+    }
 }
