@@ -1,20 +1,27 @@
-package org.track_by_daylight.controllers;
+package org.track_by_daylight.tricky;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.MapType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.track_by_daylight.models.TrickyResult;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.HashMap;
+import java.util.Map;
+
+
+// make Tricky it's own repo. Rely on an interface for mapping.
+// Make a Map Controller
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
-@RequestMapping("/api")
+@RequestMapping("/api/tricky")
 
 public class TrickyController {
 
@@ -24,14 +31,14 @@ public class TrickyController {
         this.trickyToken = trickyToken;
     }
 
-    @GetMapping("/")
-    public TrickyResult uploadFiles(@RequestParam("image") MultipartFile image) {
-        return getFromTricky(image);
+    @GetMapping()
+    public Map<String, TrickyMap> getInfo(@RequestParam String toSearch) {
+        return getFromTricky(toSearch);
     }
 
-    private TrickyResult getFromTricky(MultipartFile file) {
+    private Map<String, TrickyMap> getFromTricky(String toSearch) {
 
-        TrickyResult result = null;
+       Map<String, TrickyMap> result = null;
 
         try {
             HttpClient client = HttpClient.newBuilder()
@@ -39,23 +46,25 @@ public class TrickyController {
                     .build();
 
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://dbd.tricky.lol"))
+                    .uri(URI.create("https://dbd.tricky.lol/api/" + toSearch))
                     .header("Authorization", "Bearer " + trickyToken)
-                    .method("POST", HttpRequest.BodyPublishers.ofByteArray(file.getBytes()))
+                    .header(HttpHeaders.CONTENT_TYPE, "application/json")
                     .build();
 
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             var mapper = new ObjectMapper();
-            TrickyResult rawResult = mapper.readValue(response.body(), TrickyResult.class);
+            TypeFactory typeFactory = mapper.getTypeFactory();
+            MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, TrickyMap.class);
+            return mapper.readValue(response.body(), mapType);
 
-            result = TrickyResult.fromTrickyResult(rawResult);
 
-        } catch(IOException ex) {
-            ex.printStackTrace();
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+
+            } catch(IOException ex) {
+                ex.printStackTrace();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
 
         return result;
     }

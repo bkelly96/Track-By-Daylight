@@ -38,15 +38,10 @@ public class SecurityConfig {
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers("/create_account").permitAll()
                 .antMatchers(HttpMethod.GET,
-                        "/api/offerings", "/api/perks", "/api/addons", "/api/items").permitAll()
+                        "/api/offerings", "/api/perks", "/api/addons", "/api/items", "/api/tricky/*").permitAll()
                 .antMatchers(HttpMethod.GET,
                         "/api/trials/*", "/api/trials/account/*").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers(HttpMethod.POST,
-                        "/sighting").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers(HttpMethod.PUT,
-                        "/sighting/*").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers(HttpMethod.DELETE,
-                        "/sighting/*").hasAnyAuthority("ADMIN")
+
                 // if we get to this point, let's deny all requests
                 .antMatchers("/**").denyAll()
                 .and()

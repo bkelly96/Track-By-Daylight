@@ -5,5 +5,3 @@ p
 java:S1104	"SMake mapName a static final constant or non-public and provide accessors if needed.(”ä¯•8õ«¡´1
 r
 java:S1104"UMake realmName a static final constant or non-public and provide accessors if needed.(ƒŸûÁ8ö«¡´1
-p
-java:S1104"SMake trialId a static final constant or non-public and provide accessors if needed.(‘‹¤8éü¡´1

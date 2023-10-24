@@ -1,15 +1,11 @@
 
-X	java:S125!"<This block of commented-out lines of code should be removed.(Ä›½¹8ûÎŒö´1
 b
-java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8üÎŒö´1
+java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8âÉÎîµ1
 f
-java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8üÎŒö´1
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8âÉÎîµ1
 m
-java:S1128"KRemove this unused import 'org.springframework.security.core.parameters.P'.(Æ­Åıÿÿÿÿ8üÎŒö´1
-s
-java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8üÎŒö´1
+java:S1128"KRemove this unused import 'org.springframework.security.core.parameters.P'.(Æ­Åıÿÿÿÿ8âÉÎîµ1
 h
-java:S1128
-"FRemove this unused import 'org.track_by_daylight.domain.AddOnService'.(äî‚ıüÿÿÿÿ8üÎŒö´1
+java:S1128"FRemove this unused import 'org.track_by_daylight.domain.AddOnService'.(äî‚ıüÿÿÿÿ8âÉÎîµ1
 a
-java:S1128"?Remove this unused import 'org.track_by_daylight.models.AddOn'.(¿„¨ùÿÿÿÿ8üÎŒö´1
+java:S1128	"?Remove this unused import 'org.track_by_daylight.models.AddOn'.(¿„¨ùÿÿÿÿ8âÉÎîµ1

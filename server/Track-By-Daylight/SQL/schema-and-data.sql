@@ -189,8 +189,8 @@ insert into app_user_role
     (2, 1);
 
 insert into map (map_name, realm_name) values
-('Disturbed Ward','Crotus Prenn Asylum'),
-('Mother''s Dwelling','Red Forest');
+('Disturbed Ward','Asy_Asylum'),
+('Mother''s Dwelling','Brl_MaHouse');
     
 insert into trial (`date`, salt, app_user_id, map_id) values
 ('2023-10-12', true, 1, 1),

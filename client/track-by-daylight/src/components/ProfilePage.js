@@ -8,7 +8,9 @@ import Loading from './Loading';
 import { findTrialByUsername } from '../services/TrialAPI';
 
 function ProfilePage(){
-    
+
+    const token = `${process.env.REACT_APP_TRICKY_TOKEN}`
+    console.log(token);
     const [trials, setTrials] = useState([]);
     const navigate = useNavigate();
 

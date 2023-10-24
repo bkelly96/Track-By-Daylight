@@ -1,4 +1,4 @@
-const tricky = `${process.env.REACT_APP_TRICKY_URL}`;
+const tricky = `${process.env.REACT_APP_TRICKY_URL}`
 const url = `${process.env.REACT_APP_API_URL}/api/trials`
 
 // export async function findTrialByUserId(id){
