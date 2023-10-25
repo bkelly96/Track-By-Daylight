@@ -282,3 +282,13 @@ t
 Dsrc/main/java/org/track_by_daylight/controllers/TrialController.java,8\e\8e270d498aedf353a23470023e9606ad2d0c4d29
 l
 <src/main/java/org/track_by_daylight/domain/TrialService.java,c\f\cf9f6e4cccb0a18a7ab8834f67c27a027cca5025
+s
+Csrc/main/java/org/track_by_daylight/tricky/TrickyRawDataResult.java,9\2\9243ee0a15e4cf58d52f602b46348cb9c41c92cc
+o
+?src/main/java/org/track_by_daylight/tricky/TrickyGetResult.java,5\b\5b82287f61ba70e499bc9defeebd2b3e7c53896f
+o
+?src/main/java/org/track_by_daylight/tricky/TrickyRawResult.java,1\3\135f0231039238a012720cdd1f27c776e291d5d4
+i
+9src/main/java/org/track_by_daylight/tricky/TrickyMap.java,c\1\c1562ba7006f1e333ce7bafea7f5358dd1bbf1e7
+p
+@src/main/java/org/track_by_daylight/tricky/TrickyController.java,a\a\aab6407f13327db15d5d0c820fc9efc76fd0631a

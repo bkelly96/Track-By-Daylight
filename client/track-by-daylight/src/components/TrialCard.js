@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import asy from '../UI/Icons/Maps/iconMap_Asy_Asylum.png';
 
 import AuthContext from "../contexts/AuthContext";
 import { findMapByName } from "../services/TrickyApi";
 
 function TrialCard({ trial }) {
-    console.log(trial);
-    console.log(trial.map.realmName);
-    const mapView = findMapByName(trial.map.realmName);
+
   const { user, hasAuthority } = useContext(AuthContext);
+
+  const mapView = findMapByName(trial.map.realmName);
+
 
   return (
 

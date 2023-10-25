@@ -31,9 +31,41 @@ public class TrickyController {
         this.trickyToken = trickyToken;
     }
 
-    @GetMapping()
+    @GetMapping("/maps")
     public Map<String, TrickyMap> getInfo(@RequestParam String toSearch) {
         return getFromTricky(toSearch);
+    }
+
+    @GetMapping()
+    public TrickyMap getMapById(@RequestParam String toSearch) {return getFromTrickyId(toSearch);}
+
+    TrickyMap result = null;
+    private TrickyMap getFromTrickyId(String toSearch) {
+        try {
+            HttpClient client = HttpClient.newBuilder()
+                    .version(HttpClient.Version.HTTP_1_1)
+                    .build();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://dbd.tricky.lol/api/" + toSearch))
+                    .header("Authorization", "Bearer " + trickyToken)
+                    .header(HttpHeaders.CONTENT_TYPE, "application/json")
+                    .build();
+
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            var mapper = new ObjectMapper();
+            return mapper.readValue(response.body(), TrickyMap.class);
+
+
+
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
+        return result;
     }
 
     private Map<String, TrickyMap> getFromTricky(String toSearch) {
@@ -67,5 +99,9 @@ public class TrickyController {
             }
 
         return result;
+
+        //make new controllers killer by id/maps by id/ survivor by id
+        // pass id into fetch requests
+        //map class types to response bodies for specific calls.
     }
 }
