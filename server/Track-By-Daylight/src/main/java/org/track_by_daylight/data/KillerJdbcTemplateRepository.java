@@ -20,13 +20,29 @@ public class KillerJdbcTemplateRepository implements KillerRepository{
     public List<Killer> findAll() {
 
         final String sql = """
-                select killer_id, killer_name, is_player, trial_id from killer;
+                select k.killer_id, k.killer_name, k.is_player, k.trial_id, t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name
+                from killer k
+                inner join trial t on k.trial_id = t.trial_id
+                inner join map m on m.map_id = t.map_id
                               """;
 
         return jdbcTemplate.query(sql, new KillerMapper());
     }
 
+    @Override
+    public List<Killer> findKillerByTrialId(int trialId){
 
+        final String sql = """
+                select k.killer_id, k.killer_name, k.is_player, k.trial_id, t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name
+                from killer k
+                inner join trial t on k.trial_id = t.trial_id
+                inner join map m on m.map_id = t.map_id
+                where k.trial_id = ?;
+                """;
+
+        return jdbcTemplate.query(sql, new KillerMapper(), trialId);
+
+    }
 
 
 }

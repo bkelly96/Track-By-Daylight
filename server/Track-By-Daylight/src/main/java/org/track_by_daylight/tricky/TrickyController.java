@@ -22,7 +22,6 @@ import java.util.Map;
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
 @RequestMapping("/api/tricky")
-
 public class TrickyController {
 
     private final String trickyToken;
@@ -30,6 +29,7 @@ public class TrickyController {
     public TrickyController(@Value("${trickyToken}") String trickyToken) {
         this.trickyToken = trickyToken;
     }
+
 
     @GetMapping("/maps")
     public Map<String, TrickyMap> getInfo(@RequestParam String toSearch) {
@@ -39,8 +39,21 @@ public class TrickyController {
     @GetMapping()
     public TrickyMap getMapById(@RequestParam String toSearch) {return getFromTrickyId(toSearch);}
 
-    TrickyMap result = null;
+    @GetMapping("/survivorName")
+    public TrickySurvivor getSurvivorBySurvivorName(@RequestParam String toSearch)
+    {
+        return getFromTrickySurvivor(toSearch);
+    }
+
+    @GetMapping("/killerName")
+    public TrickyKiller getKillerByKillerName(@RequestParam String toSearch)
+    {
+        return getFromTrickyKiller(toSearch);
+    }
     private TrickyMap getFromTrickyId(String toSearch) {
+
+        TrickyMap result = null;
+
         try {
             HttpClient client = HttpClient.newBuilder()
                     .version(HttpClient.Version.HTTP_1_1)
@@ -104,4 +117,67 @@ public class TrickyController {
         // pass id into fetch requests
         //map class types to response bodies for specific calls.
     }
+
+    private TrickySurvivor getFromTrickySurvivor(String toSearch) {
+
+        TrickySurvivor result = null;
+
+        try {
+            HttpClient client = HttpClient.newBuilder()
+                    .version(HttpClient.Version.HTTP_1_1)
+                    .build();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://dbd.tricky.lol/api/" + toSearch))
+                    .header("Authorization", "Bearer " + trickyToken)
+                    .header(HttpHeaders.CONTENT_TYPE, "application/json")
+                    .build();
+
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            var mapper = new ObjectMapper();
+            return mapper.readValue(response.body(), TrickySurvivor.class);
+
+
+
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
+        return result;
+    }
+
+    private TrickyKiller getFromTrickyKiller(String toSearch) {
+
+        TrickyKiller result = null;
+
+        try {
+            HttpClient client = HttpClient.newBuilder()
+                    .version(HttpClient.Version.HTTP_1_1)
+                    .build();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://dbd.tricky.lol/api/" + toSearch))
+                    .header("Authorization", "Bearer " + trickyToken)
+                    .header(HttpHeaders.CONTENT_TYPE, "application/json")
+                    .build();
+
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            var mapper = new ObjectMapper();
+            return mapper.readValue(response.body(), TrickyKiller.class);
+
+
+
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
+        return result;
+    }
+
 }

@@ -10,16 +10,16 @@ public class Survivor {
 
     public boolean isPlayer;
 
-    public int trialId;
+    public Trial trial;
 
     public Survivor() {
     }
 
-    public Survivor(int survivorId, String survivorName, boolean isPlayer, int trialId) {
+    public Survivor(int survivorId, String survivorName, boolean isPlayer, Trial trial) {
         this.survivorId = survivorId;
         this.survivorName = survivorName;
         this.isPlayer = isPlayer;
-        this.trialId = trialId;
+        this.trial = trial;
     }
 
     public int getSurvivorId() {
@@ -46,12 +46,12 @@ public class Survivor {
         isPlayer = player;
     }
 
-    public int getTrialId() {
-        return trialId;
+    public Trial getTrial() {
+        return trial;
     }
 
-    public void setTrialId(int trialId) {
-        this.trialId = trialId;
+    public void setTrial(Trial trial) {
+        this.trial = trial;
     }
 
     @Override
@@ -59,11 +59,11 @@ public class Survivor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Survivor survivor = (Survivor) o;
-        return survivorId == survivor.survivorId && isPlayer == survivor.isPlayer && trialId == survivor.trialId && Objects.equals(survivorName, survivor.survivorName);
+        return survivorId == survivor.survivorId && isPlayer == survivor.isPlayer && Objects.equals(survivorName, survivor.survivorName) && Objects.equals(trial, survivor.trial);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(survivorId, survivorName, isPlayer, trialId);
+        return Objects.hash(survivorId, survivorName, isPlayer, trial);
     }
 }

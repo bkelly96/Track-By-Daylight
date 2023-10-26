@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SurvivorRepository {
     List<Survivor> findAll();
+
+    List<Survivor> findSurvivorByTrialId(int trialId);
 }

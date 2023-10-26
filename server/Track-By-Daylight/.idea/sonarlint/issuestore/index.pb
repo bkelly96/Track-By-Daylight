@@ -292,3 +292,5 @@ i
 9src/main/java/org/track_by_daylight/tricky/TrickyMap.java,c\1\c1562ba7006f1e333ce7bafea7f5358dd1bbf1e7
 p
 @src/main/java/org/track_by_daylight/tricky/TrickyController.java,a\a\aab6407f13327db15d5d0c820fc9efc76fd0631a
+n
+>src/main/java/org/track_by_daylight/tricky/TrickySurvivor.java,3\9\3947b47136c85d9d397bd2c1b453c61605241c48

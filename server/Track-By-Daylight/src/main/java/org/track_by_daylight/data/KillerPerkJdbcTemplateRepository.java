@@ -27,4 +27,5 @@ public class KillerPerkJdbcTemplateRepository implements KillerPerkRepository {
 
         return jdbcTemplate.query(sql, new KillerPerkMapper());
     }
+
 }

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface KillerRepository {
     List<Killer> findAll();
+
+    List<Killer> findKillerByTrialId(int trialId);
 }

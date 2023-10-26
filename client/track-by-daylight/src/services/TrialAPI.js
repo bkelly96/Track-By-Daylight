@@ -1,5 +1,5 @@
 const tricky = `${process.env.REACT_APP_TRICKY_URL}`
-const url = `${process.env.REACT_APP_API_URL}/api/trials`
+const url = `${process.env.REACT_APP_API_URL}`
 
 // export async function findTrialByUserId(id){
 //     const response = await fetch(`${url}/trials/${id}`);
@@ -25,7 +25,7 @@ const url = `${process.env.REACT_APP_API_URL}/api/trials`
       }
     }
 
-    const response = await fetch(`${url}/account/${username}`, init);
+    const response = await fetch(`${url}/api/trials/account/${username}`, init);
     if (response.status === 200) {
       return response.json();
     } else if (response.status === 404) {
@@ -34,3 +34,55 @@ const url = `${process.env.REACT_APP_API_URL}/api/trials`
       return Promise.reject("Unexpected error, oops.");
     }
   }
+
+ 
+  //find survivor by trial id
+  export async function findSurvivorByTrialId(trialId){
+    const jwtToken = localStorage.getItem("jwt_token");
+    if (!jwtToken) {
+      return Promise.reject("Unauthorized.")
+    }
+    
+    const init = {
+      headers: {
+        "Authorization": "Bearer " + jwtToken
+      }
+    }
+
+
+    const response = await fetch(`${url}/api/survivor/${trialId}`, init);
+    if (response.status === 200) {
+      return response.json();
+    } else if (response.status === 404) {
+      return Promise.reject(`Trial Id: ${trialId} could not be found.`);
+    } else {
+      return Promise.reject("Unexpected error, oops.");
+    }
+  }
+
+    
+  //find killer by trial id
+  export async function findKillerByTrialId(trialId){
+    const jwtToken = localStorage.getItem("jwt_token");
+    if (!jwtToken) {
+      return Promise.reject("Unauthorized.")
+    }
+    
+    const init = {
+      headers: {
+        "Authorization": "Bearer " + jwtToken
+      }
+    }
+
+
+
+    const response = await fetch(`${url}/api/killer/${trialId}`, init);
+    if (response.status === 200) {
+      return response.json();
+    } else if (response.status === 404) {
+      return Promise.reject(`Trial Id: ${trialId} could not be found.`);
+    } else {
+      return Promise.reject("Unexpected error, oops.");
+    }
+  }
+  

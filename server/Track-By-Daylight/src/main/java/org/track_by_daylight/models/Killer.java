@@ -10,16 +10,16 @@ public class Killer {
 
     public boolean isPlayer;
 
-    public int trialId;
+    public Trial trial;
 
     public Killer() {
     }
 
-    public Killer(int killerId, String killerName, boolean isPlayer, int trialId) {
+    public Killer(int killerId, String killerName, boolean isPlayer, Trial trial) {
         this.killerId = killerId;
         this.killerName = killerName;
         this.isPlayer = isPlayer;
-        this.trialId = trialId;
+        this.trial = trial;
     }
 
     public int getKillerId() {
@@ -46,12 +46,12 @@ public class Killer {
         isPlayer = player;
     }
 
-    public int getTrialId() {
-        return trialId;
+    public Trial getTrial() {
+        return trial;
     }
 
-    public void setTrialId(int trialId) {
-        this.trialId = trialId;
+    public void setTrial(Trial trial) {
+        this.trial = trial;
     }
 
     @Override
@@ -59,11 +59,11 @@ public class Killer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Killer killer = (Killer) o;
-        return killerId == killer.killerId && isPlayer == killer.isPlayer && trialId == killer.trialId && Objects.equals(killerName, killer.killerName);
+        return killerId == killer.killerId && isPlayer == killer.isPlayer && Objects.equals(killerName, killer.killerName) && Objects.equals(trial, killer.trial);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(killerId, killerName, isPlayer, trialId);
+        return Objects.hash(killerId, killerName, isPlayer, trial);
     }
 }

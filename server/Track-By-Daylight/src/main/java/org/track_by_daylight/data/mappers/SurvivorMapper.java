@@ -16,7 +16,9 @@ public class SurvivorMapper implements RowMapper<Survivor> {
         survivor.setSurvivorId(resultSet.getInt("survivor_id"));
         survivor.setSurvivorName(resultSet.getString("survivor_name"));
         survivor.setPlayer(resultSet.getBoolean("is_player"));
-        survivor.setTrialId(resultSet.getInt("trial_id"));
+
+        TrialMapper trialMapper = new TrialMapper();
+        survivor.setTrial(trialMapper.mapRow(resultSet, i));
 
         return survivor;
     }

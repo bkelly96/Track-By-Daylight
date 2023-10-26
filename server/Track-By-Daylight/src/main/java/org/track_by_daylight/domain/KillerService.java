@@ -18,4 +18,8 @@ public class KillerService {
     }
 
     public List<Killer> findAll() {return repository.findAll(); }
+
+    public List<Killer> findKillerByTrialId(int trialId) {
+        return repository.findKillerByTrialId(trialId);
+    }
 }

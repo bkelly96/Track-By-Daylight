@@ -48,17 +48,41 @@ select killer_id, killer_name, is_player, trial_id from killer;
 select survivor_id, survivor_name, is_player, trial_id from survivor;
 
 #Map get Maps
-select map_id, map_name, realm_name, trial_id from map;
+select map_id, map_name, realm_name from map;
 
 #Trial get Trials
 select trial_id, date, salt, app_user_id from trial;
 
 ##select all trials for a user
-select t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name, m.trial_id
+select t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name
 from trial t 
-inner join map m on m.trial_id = t.trial_id
+inner join map m on m.map_id = t.map_id
 where t.app_user_id = 1;
 
-## find match by id on the front end - hook up the front end and back end
+## select all from trial
+select t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name
+from trial t 
+inner join map m on m.map_id = t.map_id;
+
+## select all from trial usernmame
+select u.username, t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name
+from trial t 
+inner join map m on m.map_id = t.map_id
+inner join app_user u on u.app_user_id = t.app_user_id
+where u.username = "john@smith.com";
+
+##select survivors by trial id
+select s.survivor_id, s.survivor_name, s.survive, s.is_player, s.trial_id, t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name
+from survivor s 
+inner join trial t on s.trial_id = t.trial_id
+inner join map m on m.map_id = t.map_id
+where s.trial_id = 1;
+
+##select killers by trial id 
+select k.killer_id, k.killer_name, k.is_player, k.trial_id, t.trial_id, t.date, t.salt, t.app_user_id, m.map_id, m.map_name, m.realm_name
+from killer k 
+inner join trial t on k.trial_id = t.trial_id
+inner join map m on m.map_id = t.map_id
+where k.trial_id = 1;
 
 ## query independently, add the items by survivor, add the item by killer 1. select survivor, s item, s add on, s perk where match id = 1, reference Agency

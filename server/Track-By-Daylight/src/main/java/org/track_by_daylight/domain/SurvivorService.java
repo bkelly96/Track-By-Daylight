@@ -1,9 +1,7 @@
 package org.track_by_daylight.domain;
 
 import org.springframework.stereotype.Service;
-import org.track_by_daylight.data.KillerRepository;
 import org.track_by_daylight.data.SurvivorRepository;
-import org.track_by_daylight.models.Killer;
 import org.track_by_daylight.models.Survivor;
 
 import java.util.List;
@@ -18,4 +16,8 @@ public class SurvivorService {
     }
 
     public List<Survivor> findAll() {return repository.findAll(); }
+
+    public List<Survivor> findSurvivorByTrialId(int trialId){
+        return repository.findSurvivorByTrialId(trialId);
+    }
 }

@@ -16,7 +16,9 @@ public class KillerMapper  implements RowMapper<Killer> {
         killer.setKillerId(resultSet.getInt("killer_id"));
         killer.setKillerName(resultSet.getString("killer_name"));
         killer.setPlayer(resultSet.getBoolean("is_player"));
-        killer.setTrialId(resultSet.getInt("trial_id"));
+
+        TrialMapper trialMapper = new TrialMapper();
+        killer.setTrial(trialMapper.mapRow(resultSet, i));
 
         return killer;
     }
