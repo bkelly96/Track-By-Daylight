@@ -6,7 +6,7 @@ import LoginPage from "./components/LoginPage";
 import NotFound from "./components/NotFound";
 import AuthContext from "./contexts/AuthContext"
 import ProfilePage from "./components/ProfilePage";
-
+import Nav from './components/Nav';
 
 
 
@@ -67,6 +67,7 @@ function App() {
     <>
     <AuthContext.Provider value={auth}>
     <Router>
+      <Nav></Nav>
       <main>
       <Routes>
       <Route path='/' element={<LoginPage/>} />

@@ -37,7 +37,7 @@ function LoginPage() {
     };
   
     return (
-      <div>
+      <div className="content nav-bar-space">
         <ValidationSummary errors={errors} />
         <form onSubmit={handleSubmit}>
           <div>
@@ -66,10 +66,10 @@ function LoginPage() {
               />
             </div>
             <div>
-              <Link to="/" className="btn btn-secondary">
+              <Link to="/" className="button-1">
                 Cancel
               </Link>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="button-2">
                 Log in
               </button>
             </div>

@@ -50,7 +50,6 @@ function TrialCard({ trial }) {
     const loadSurvivorView1 = async () => {
       try {
         const survivorName = await findSurvivorByTrialId(trial.trialId);
-        console.log(survivorName[0].survivorName);
         const result = await findSurvivorByName(survivorName[0].survivorName);
         setSurvivorView1(result);
       } catch (error) {
@@ -158,7 +157,6 @@ function TrialCard({ trial }) {
       mapView.image = gam;
       break;
     default:
-      console.log("default");
   }
 
   switch(survivorView1.image){
@@ -280,7 +278,6 @@ function TrialCard({ trial }) {
     survivorView3.image = que;
         break;
     default:
-      console.log("default");
   }
 
 
@@ -322,9 +319,7 @@ function TrialCard({ trial }) {
     survivorView4.image = que;
         break;
     default:
-      console.log("default");
   }
-
   
   switch(killerView.image){
     case 'UI/Icons/CharPortraits/K01_TheTrapper_Portrait.png':
@@ -339,24 +334,32 @@ function TrialCard({ trial }) {
     default:
   }
 
+  console.log(killerView.name);
+
 
   return (
-    <div className="col mb-4">
-      <div className="card">
+    <div className="col mb-4 center">
+      <div className="card pinkbg">
+      <h4>{mapView.name}</h4>
+      <h5 className="card-title">Match Date: {trial.date}</h5>
         <img src={mapView.image} className="card-img-top" alt={trial.image} />
+        <p> Killer: {killerView.name}</p>
         <img src= {killerView.image} className="card-img-top" alt={trial.image} />
+        <p> Survivor: {survivorView1.name}</p>
         <img src={survivorView1.image} className="card-img-top" alt={trial.image} />
+        <p> Survivor: {survivorView2.name}</p>
         <img src={survivorView2.image} className="card-img-top" alt={trial.image} />
+        <p> Survivor: {survivorView3.name}</p>
         <img src={survivorView3.image} className="card-img-top" alt={trial.image} />
+        <p> Survivor: {survivorView4.name}</p>
         <img src={survivorView4.image} className="card-img-top" alt={trial.image} />
         <div className="card-body">
-          <h5 className="card-title">{trial.date}</h5>
-          <h4>{trial.mapName}</h4>
+         
        
-          {user && <Link to={`/trial/edit/${trial.id}`} className="btn btn-dark">
+          {user && <Link to={`/trial/edit/${trial.id}`} className="button-2">
             Edit
           </Link>}
-          {user && hasAuthority('ADMIN') && <Link to={`/trial/delete/${trial.id}`} className="btn btn-danger">
+          {user && hasAuthority('ADMIN') && <Link to={`/trial/delete/${trial.id}`} className="button-1">
             Delete
           </Link>}
         </div>

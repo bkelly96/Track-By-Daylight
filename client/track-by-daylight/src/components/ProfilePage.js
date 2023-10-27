@@ -27,6 +27,7 @@ function ProfilePage(){
     
 
     return (
+        <div className='center rcorners'>
         <div className="profile">
             <h2>User Profile</h2>
             {user && (
@@ -39,6 +40,7 @@ function ProfilePage(){
                     <div className="me-auto p-2 bd-highlight">
                     <h2>Trials</h2>
                     </div>
+                    </div>
                     <div className="p-2 bd-highlight">
                     {/* {user && (
                         <Link to="/game/add" className="btn btn-secondary">
@@ -47,7 +49,7 @@ function ProfilePage(){
                     )} */}
                     </div>
                 </div>
-                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                <div className="cards-wrapper">
                     {trials.length === 0 ? (
                     <div className="alert alert-info">
                         Nothing here yet, add a trial!
