@@ -66,10 +66,10 @@ As a User I can Record a Trial -
 
 
 ### Database - MySQL
->- ERD - Complete Tables and Finalize [x] (2.5 hours - Actual) (2 hours Estimated)
->- Create Tables [x] (1.5 hours - Actual) (2 hours Estimated)
->- Populate Table with data [x] - (2 hours - Actual) (2 hours Estimated)
->- Create Test Data and Set Known Good State [x] - (.5 hours - Actual) (1 hour Estimated)
+>- ERD - Complete Tables and Finalize [x]  (2 hours Estimated) (2.5 hours - Actual)
+>- Create Tables [x] (2 hours Estimated)  (1.5 hours - Actual) 
+>- Populate Table with data [x] - (2 hours Estimated) (2 hours - Actual) 
+>- Create Test Data and Set Known Good State [x] - (1 hour Estimated) (.5 hours - Actual) 
 
 ### Security (3 Hours Estimate)(1.5 Hours Actual)
 >- Create Repository Layer [x]
@@ -85,12 +85,36 @@ As a User I can Record a Trial -
 >- Create Models for all Tables [x]
 
 ### Database Layer
->- Survivor Tables (2 Hours Estimate) (1.75 Hours Actual)
->- Killer Tables (1 Hour Estimate) (.6 Hours Actual)
->- Map and Trial Tables (1 Hour Estimate) (.5 Hours Actual)
+>- Survivor Tables  [x] (2 Hours Estimate) (1.75 Hours Actual)
+>- Killer Tables  [x] (1 Hour Estimate) (.6 Hours Actual)
+>- Map and Trial  [x] Tables (1 Hour Estimate) (.5 Hours Actual)
+>- Perk, Offering, Items, Add Ons [x] (1 Hour Esitmate) (.5 Hours Actual)
+
 
 ### Service Layer
 >- Offering, Add On, Item, Perk [x] (1 Hour Estimate) (1.5 Hours Actual)
+>- Survivor, Trial, Killer [x] (1 Hour Estimate) (.75 Hours Actual)
+>- Result, 
 
 ### Controller Layer
 >- Offering, Add On, Item, Perk [x] (1 Hour Estimate) (1.5 Hours Actual)
+>- Killer, Trial, Survivor [x] (1 Hour Estimate) (1 Hours Actual)
+
+### Tests (3 Hours Estimate) (2 Hours Actual)
+>- Database Layer Tests [x]
+>- Security Service Tests [x]
+
+### Tricky - API Security (3 Hours Estimate) (3 Hours Actual)
+>- Auth Context [x]
+
+
+### Mapping Images [x] (2 Hours Estimate) (3 Hours Actual)
+
+### Login Page Ui [x] (2 Hours Estimate) (2 Hours Actual)
+
+### Trial Card Ui [x] (2 Hours Estimate) (3 Hours Actual)
+
+### Profile Page Ui [x] (2 Hours Estimate) (2 Hours Actual)
+
+### Nav Bar Ui [x] (1 Hour Estimate) (.5 Hours Actual)
+
