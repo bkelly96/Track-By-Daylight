@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../services/AuthAPI";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AuthContext from "../contexts/AuthContext";
 import ValidationSummary from "./ValidationSummary";

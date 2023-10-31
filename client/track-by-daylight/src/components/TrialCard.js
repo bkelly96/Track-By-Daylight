@@ -117,7 +117,7 @@ function TrialCard({ trial }) {
     loadKillerView();
   }, [trial.trialId]); 
 
-  // Optionally, you can show a loading indicator while the map view is being loaded
+  // Show a loading indicator while the view is being loaded
   if (!mapView) {
     return <div>Loading...</div>;
   }
@@ -333,8 +333,6 @@ function TrialCard({ trial }) {
       break;
     default:
   }
-
-  console.log(killerView.name);
 
 
   return (

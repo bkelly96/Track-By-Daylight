@@ -1,5 +1,4 @@
 
-import logo from './logo.svg';
 import { useEffect, useState, useCallback } from "react";
 import { refreshToken, logout } from "./services/AuthAPI";
 import LoginPage from "./components/LoginPage";
@@ -26,7 +25,7 @@ function App() {
         setTimeout(resetUser, TIMEOUT_MILLISECONDS);
       })
       .catch((err) => {
-        console.log(err);
+        
       })
       .finally(() => setInitialized(true));
   }, []);

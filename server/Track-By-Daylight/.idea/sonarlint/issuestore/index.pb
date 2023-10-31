@@ -294,3 +294,9 @@ p
 @src/main/java/org/track_by_daylight/tricky/TrickyController.java,a\a\aab6407f13327db15d5d0c820fc9efc76fd0631a
 n
 >src/main/java/org/track_by_daylight/tricky/TrickySurvivor.java,3\9\3947b47136c85d9d397bd2c1b453c61605241c48
+u
+Esrc/main/java/org/track_by_daylight/controllers/KillerController.java,4\6\46d244d5f3e1a6a4acf8e66e25f79eb290a4ac3b
+w
+Gsrc/main/java/org/track_by_daylight/controllers/SurvivorController.java,c\8\c85e5e3425fda3215ccf54b9c40ac7637290f75c
+l
+<src/main/java/org/track_by_daylight/tricky/TrickyKiller.java,a\d\ad97f3fa63ff62fba017569f394c80b62a5f3e78

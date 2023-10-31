@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext} from 'react';
 import { useNavigate, Link } from "react-router-dom";
-import { findMapByName } from '../services/TrickyApi';
 import AuthContext from "../contexts/AuthContext";
 import TrialCard from './TrialCard';
 
-import Loading from './Loading';
 import { findTrialByUsername } from '../services/TrialAPI';
 
 function ProfilePage(){
@@ -43,8 +41,8 @@ function ProfilePage(){
                     </div>
                     <div className="p-2 bd-highlight">
                     {/* {user && (
-                        <Link to="/game/add" className="btn btn-secondary">
-                        Add Board Game
+                        <Link to="/trial/add" className="btn btn-secondary">
+                        Add Trial
                         </Link>
                     )} */}
                     </div>

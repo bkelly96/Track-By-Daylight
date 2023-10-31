@@ -1,10 +1,25 @@
 
+k
+java:S1192@"NDefine a constant instead of duplicating this literal "Authorization" 4 times.(Ñ‹ÿ¾8…ÓèÓ¶1
+y
+java:S1192?"\Define a constant instead of duplicating this literal "https://dbd.tricky.lol/api/" 4 times.(›¶’ì8·ãÄØ¶1
+n
+java:S1192A"QDefine a constant instead of duplicating this literal "application/json" 4 times.( Òù˜8†ÓèÓ¶1
+e
+java:S1192@"HDefine a constant instead of duplicating this literal "Bearer " 4 times.(Ñ‹ÿ¾8†ÓèÓ¶1
 f
-java:S2147B"DCombine this catch with the one at line 64, which has the same body.(è®ã¶øÿÿÿÿ8Ãè„¾¶1
+java:S2147M"DCombine this catch with the one at line 75, which has the same body.(è®ã¶øÿÿÿÿ8Ãè„¾¶1
 €
-java:S2142B"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8Ãè„¾¶1
-f
-java:S2147c"DCombine this catch with the one at line 97, which has the same body.(è®ã¶øÿÿÿÿ8Ôè„¾¶1
+java:S2142M"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8Ãè„¾¶1
+g
+java:S2147n"ECombine this catch with the one at line 108, which has the same body.(è®ã¶øÿÿÿÿ8Ôè„¾¶1
 €
-java:S2142c"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8Ôè„¾¶1
-]	java:S125n"<This block of commented-out lines of code should be removed.(Ä²ú¶üÿÿÿÿ8Ÿ±äÓ¶1
+java:S2142n"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8Ôè„¾¶1
+h
+java:S2147‘"ECombine this catch with the one at line 143, which has the same body.(è®ã¶øÿÿÿÿ8ôÓèÓ¶1
+
+java:S2142‘"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8õÓèÓ¶1
+h
+java:S2147°"ECombine this catch with the one at line 174, which has the same body.(è®ã¶øÿÿÿÿ8ó‰äÚ¶1
+
+java:S2142°"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8ó‰äÚ¶1
