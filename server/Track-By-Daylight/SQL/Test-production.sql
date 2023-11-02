@@ -3,7 +3,7 @@ create database Track_By_Daylight_test;
 use Track_By_Daylight_test;
 
 
--- create tables and relationships
+
 create table app_user (
     app_user_id int primary key auto_increment,
     username varchar(50) not null unique,
@@ -29,24 +29,24 @@ create table app_user_role (
         references app_role(app_role_id)
 );
 
+create table map (
+	map_id int primary key auto_increment,
+    map_name varchar(75) NOT NULL,
+    realm_name varchar(75) NOT NULL
+);
+
 create table trial (
 	trial_id int primary key auto_increment,
     `date` DATE NOT NULL, 
     salt boolean NOT NULL,
 	app_user_id int NOT NULL, 
+    map_id int NOT NULL,
     constraint fk_app_user_id
 		foreign key(app_user_id)
-        references app_user(app_user_id)
-);
-
-create table map (
-	map_id int primary key auto_increment,
-    map_name varchar(75) NOT NULL,
-    realm_name varchar(75) NOT NULL,
-    trial_id int NOT NULL, 
-	constraint fk_trial_id
-		foreign key(trial_id)
-        references trial(trial_id)
+        references app_user(app_user_id),
+	constraint fk_map_trial_id
+		foreign key (map_id)
+        references map(map_id)
 );
 
 create table killer (
@@ -196,10 +196,10 @@ begin
     alter table killer auto_increment = 1;
     delete from survivor;
     alter table survivor auto_increment = 1;
-    delete from map;
-    alter table map auto_increment = 1;
     delete from trial;
     alter table trial auto_increment = 1;
+	delete from map;
+    alter table map auto_increment = 1;
 	delete from app_user_role;
     alter table app_user_role auto_increment = 1;
     delete from app_role;
@@ -214,8 +214,10 @@ begin
     alter table perk auto_increment = 1;
     delete from offering;
     alter table offering auto_increment = 1;
+
     
-   insert into app_role (`name`) values
+
+insert into app_role (`name`) values
     ('USER'),
     ('ADMIN');
 
@@ -229,14 +231,14 @@ insert into app_user_role
     values
     (1, 2),
     (2, 1);
-    
-insert into trial (`date`, salt, app_user_id) values
-('2023-10-12', true, 1),
-('2023-10-11', false, 2);
 
-insert into map (map_name, realm_name, trial_id) values
-('Disturbed Ward','Crotus Prenn Asylum', 1),
-('Mother''s Dwelling','Red Forest', 2);
+insert into map (map_name, realm_name) values
+('Disturbed Ward','Crotus Prenn Asylum'),
+('Mother''s Dwelling','Red Forest');
+    
+insert into trial (`date`, salt, app_user_id, map_id) values
+('2023-10-12', true, 1, 1),
+('2023-10-11', false, 2, 2);
 
 insert into killer (killer_name, is_player, trial_id) values
 ('The Trapper', false, 1),
@@ -429,6 +431,9 @@ insert into survivor_add_on(survivor_id, add_on_id) values
 (7, 18),
 (8, 19),
 (8, 20);
+
+
+
 
 end //
 -- 4. Change the statement terminator back to the original.
