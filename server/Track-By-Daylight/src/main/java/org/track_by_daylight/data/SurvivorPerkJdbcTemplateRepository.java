@@ -28,4 +28,18 @@ public class SurvivorPerkJdbcTemplateRepository implements SurvivorPerkRepositor
 
         return jdbcTemplate.query(sql, new SurvivorPerkMapper());
     }
+
+    @Override
+    public List<SurvivorPerk> findPerkBySurvivorId(int survivorId){
+
+        final String sql = """
+                select s.survivor_id, s.survivor_name, s.survive, s.is_player, s.trial_id, sp.survivor_perk_id, sp.survivor_id, sp.perk_id, p.perk_id, p.perk_name 
+                from survivor s
+                inner join survivor_perk sp on s.survivor_id = sp.survivor_id
+                inner join perk p on sp.perk_id = p.perk_id
+                where s.survivor_id = ?;
+                """;
+
+        return jdbcTemplate.query(sql, new SurvivorPerkMapper(), survivorId);
+    }
 }

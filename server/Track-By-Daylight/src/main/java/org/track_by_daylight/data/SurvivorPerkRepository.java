@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SurvivorPerkRepository {
     List<SurvivorPerk> findAll();
+
+    List<SurvivorPerk> findPerkBySurvivorId(int survivorId);
 }

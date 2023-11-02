@@ -7,7 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.track_by_daylight.models.SurvivorAddOn;
 import org.track_by_daylight.models.SurvivorPerk;
+import org.track_by_daylight.models.Trial;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,4 +42,14 @@ public class SurvivorPerkJdbcTemplateRepositoryTest {
         assertTrue(survivorPerks.stream()
                 .anyMatch(o -> o.getSurvivorPerkId() == 1 && o.getSurvivorId() == 1));
     }
+
+    @Test
+    void shouldFindById() {
+        List<SurvivorPerk> survivorPerks = repository.findPerkBySurvivorId(1);
+
+        assertTrue(survivorPerks.size() ==4);
+        assertTrue(survivorPerks.stream()
+                .anyMatch(o -> o.getSurvivorId() == 1 && o.getPerk().getPerkName().equals("Ace in the Hole")));
+    }
+
 }

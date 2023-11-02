@@ -43,5 +43,6 @@ public class SurvivorJdbcTemplateRepository implements SurvivorRepository {
         return jdbcTemplate.query(sql, new SurvivorMapper(), trialId);
 
     }
+
 }
 
