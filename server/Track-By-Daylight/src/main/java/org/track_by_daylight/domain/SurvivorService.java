@@ -20,4 +20,5 @@ public class SurvivorService {
     public List<Survivor> findSurvivorByTrialId(int trialId){
         return repository.findSurvivorByTrialId(trialId);
     }
+
 }

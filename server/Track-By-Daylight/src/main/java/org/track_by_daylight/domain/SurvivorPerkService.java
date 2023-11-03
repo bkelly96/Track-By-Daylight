@@ -19,4 +19,8 @@ public class SurvivorPerkService {
     }
 
     public List<SurvivorPerk> findAll() {return repository.findAll(); }
+
+    public List<SurvivorPerk> findPerkBySurvivorId(int survivorId){
+        return repository.findPerkBySurvivorId(survivorId);
+    }
 }
