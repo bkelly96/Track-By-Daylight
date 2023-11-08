@@ -114,6 +114,19 @@ As a User I can Record a Trial -
 
 ### Trial Card Ui [x] (2 Hours Estimate) (3 Hours Actual)
 
+## Find Perk by Survivor ID [x] Back End
+>- Add all perks into Sql and develop query (1 hour Actual)
+>- Add Controller, Service, Tests, data layer (3 Hours Estimate) (3 Hours Actual)
+
+## Find Perk by Survivor ID []
+>- Add all Images to back end [x]
+>- display card for survivor perks
+>- import all images into perk card
+>- display perk bad on image.
+
+## Cache Searches
+
+## AWS Implementation
 ### Profile Page Ui [x] (2 Hours Estimate) (2 Hours Actual)
 
 ### Nav Bar Ui [x] (1 Hour Estimate) (.5 Hours Actual)
