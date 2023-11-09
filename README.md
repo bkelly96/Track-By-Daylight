@@ -126,7 +126,7 @@ As a User I can Record a Trial -
 
 ## Cache Searches
 
-## AWS Implementation
+## Host on AWS 
 ### Profile Page Ui [x] (2 Hours Estimate) (2 Hours Actual)
 
 ### Nav Bar Ui [x] (1 Hour Estimate) (.5 Hours Actual)
