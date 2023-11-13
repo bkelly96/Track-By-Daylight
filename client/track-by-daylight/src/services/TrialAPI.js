@@ -60,6 +60,33 @@ const url = `${process.env.REACT_APP_API_URL}`
     }
   }
 
+  //find perks by survivor ID
+  export async function findPerksBySurvivorId(survivorId){
+    const jwtToken = localStorage.getItem("jwt_token");
+    if (!jwtToken) {
+      return Promise.reject("Unauthorized.")
+    }
+    
+    const init = {
+      headers: {
+        "Authorization": "Bearer " + jwtToken
+      }
+    }
+
+
+    const response = await fetch(`${url}/api/survivor/${survivorId}`, init);
+    if (response.status === 200) {
+      return response.json();
+    } else if (response.status === 404) {
+      return Promise.reject(`Trial Id: ${survivorId} could not be found.`);
+    } else {
+      return Promise.reject("Unexpected error, oops.");
+    }
+  }
+
+
+  //find perks by killer ID
+
     
   //find killer by trial id
   export async function findKillerByTrialId(trialId){
