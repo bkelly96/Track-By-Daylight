@@ -18,6 +18,7 @@ import que from '../UI/Icons/CharPortraits/S11_QuentinSmith_Portrait.png';
 import tra from '../UI/Icons/CharPortraits/K01_TheTrapper_Portrait.png';
 import clo from '../UI/Icons/CharPortraits/K12_TheClown_Portrait.png';
 import mic from '../UI/Icons/CharPortraits/K06_TheShape_Portrait.png';
+import killerImage from '../data/Killer.json';
 
 import AuthContext from "../contexts/AuthContext";
 import { findKillerByName, findMapByName, findSurvivorByName } from "../services/TrickyApi";
@@ -32,6 +33,8 @@ function TrialCard({ trial }) {
   const [survivorView3, setSurvivorView3] = useState(null);
   const [survivorView4, setSurvivorView4] = useState(null);
   const [killerView, setKillerView] = useState(null);
+
+  //take Trapper killer from Json to use as image for fetch request. 
 
   useEffect(() => {
     const loadMapView = async () => {
@@ -342,7 +345,7 @@ function TrialCard({ trial }) {
       <h5 className="card-title">Match Date: {trial.date}</h5>
         <img src={mapView.image} className="card-img-top" alt={trial.image} />
         <p> Killer: {killerView.name}</p>
-        <img src= {killerView.image} className="card-img-top" alt={trial.image} />
+        <img src= {killerImage.url} className="card-img-top" alt={trial.image} />
         <p> Survivor: {survivorView1.name}</p>
         <img src={survivorView1.image} className="card-img-top" alt={trial.image} />
         <p> Survivor: {survivorView2.name}</p>
