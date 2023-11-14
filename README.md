@@ -126,6 +126,10 @@ As a User I can Record a Trial -
 
 ## Cache Searches
 
+## Switching Images to JSON files and ID
+>- Add Killers, Survivors , Perks to JSON file []
+>- populate image based on killer name and pull from Json files instead of Switch []
+
 ## Host on AWS 
 ### Profile Page Ui [x] (2 Hours Estimate) (2 Hours Actual)
 
