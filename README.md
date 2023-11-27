@@ -114,23 +114,24 @@ As a User I can Record a Trial -
 
 ### Trial Card Ui [x] (2 Hours Estimate) (3 Hours Actual)
 
-## Find Perk by Survivor ID [x] Back End
+### Find Perk by Survivor ID [x] Back End
 >- Add all perks into Sql and develop query (1 hour Actual)
 >- Add Controller, Service, Tests, data layer (3 Hours Estimate) (3 Hours Actual)
 
-## Find Perk by Survivor ID []
+### Find Perk by Survivor ID []
 >- Add all Images to back end [x]
 >- display card for survivor perks
 >- import all images into perk card
 >- display perk bad on image.
 
-## Cache Searches
+### Cache Searches (4 Hours Estimate) (4 Hours Actual)
+>- Create Cached Results for search to reduce workload [x] 
 
-## Switching Images to JSON files and ID
+### Switching Images to JSON files and ID
 >- Add Killers, Survivors , Perks to JSON file []
 >- populate image based on killer name and pull from Json files instead of Switch []
 
-## Host on AWS 
+### Host on AWS 
 ### Profile Page Ui [x] (2 Hours Estimate) (2 Hours Actual)
 
 ### Nav Bar Ui [x] (1 Hour Estimate) (.5 Hours Actual)
