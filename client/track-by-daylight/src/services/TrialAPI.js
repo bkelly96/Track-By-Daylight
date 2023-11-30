@@ -1,3 +1,5 @@
+import killerImage from '../data/Killer.json';
+
 const tricky = `${process.env.REACT_APP_TRICKY_URL}`
 const url = `${process.env.REACT_APP_API_URL}`
 
@@ -111,5 +113,21 @@ const url = `${process.env.REACT_APP_API_URL}`
     } else {
       return Promise.reject("Unexpected error, oops.");
     }
+  }
+
+  //find killer image by killer name
+
+  export async function findKillerImageByKillerName(targerKillerName){
+
+    const killerList = killerImage.killer;
+
+    for (const killer of killerList){
+      if(killer.name === targerKillerName){
+        return killer;
+      }
+    }
+
+    return Promise.reject("Unexpected error, oops.");
+
   }
   

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import KillerCard from './KillerCard'; 
 import asy from '../UI/Icons/Maps/iconMap_Asy_Asylum.png';
 import brl from '../UI/Icons/Maps/iconMap_Brl_MaHouse.png';
 import gam from '../UI/Icons/Maps/iconMap_Fin_TheGame.png';
@@ -15,14 +16,14 @@ import fen from '../UI/Icons/CharPortraits/S09_FengMin_Portrait.png';
 import dav from '../UI/Icons/CharPortraits/S10_DavidKing_Portrait.png';
 import kat from '../UI/Icons/CharPortraits/S13_KateDenson_Portrait.png';
 import que from '../UI/Icons/CharPortraits/S11_QuentinSmith_Portrait.png';
-import tra from '../UI/Icons/CharPortraits/K01_TheTrapper_Portrait.png';
 import clo from '../UI/Icons/CharPortraits/K12_TheClown_Portrait.png';
 import mic from '../UI/Icons/CharPortraits/K06_TheShape_Portrait.png';
-import killerImage from '../data/Killer.json';
+
+
 
 import AuthContext from "../contexts/AuthContext";
-import { findKillerByName, findMapByName, findSurvivorByName } from "../services/TrickyApi";
-import { findKillerByTrialId, findSurvivorByTrialId } from "../services/TrialAPI";
+import { findMapByName, findSurvivorByName } from "../services/TrickyApi";
+import { findKillerByTrialId, findSurvivorByTrialId, findKillerImageByKillerName } from "../services/TrialAPI";
 
 function TrialCard({ trial }) {
 
@@ -203,38 +204,7 @@ function TrialCard({ trial }) {
       loadSurvivorView4();
     }, [trial.trialId, s4Cache]); 
     
-  useEffect(() => {
-    const loadKillerView = async () => {
-      try {
-      
-        //check to see if result is already in cache 1
-  
-        if (killerCache[trial.trialId]){
-          setKillerView(killerCache[trial.trialId]);
-          }
-          else {
-            //if it's not in the cache, fetch the new survivor name
-            const killerName = await findKillerByTrialId(trial.trialId);
-  
-            //fetch the survivor detauls using the survivor name
-            const result = await findKillerByName(killerName[0].killerName);
-  
-            //Update the cache with the new result
-            setKillerCache(prevCache => ({
-              ...prevCache,
-              [trial.trialId]: result
-            }));
-  
-            // Set the survivor view State
-            setKillerView(result);
-          }
-        } catch (error) {
-          console.error("Failed to load Survivor view:", error);
-        }
-      };
-  
-      loadKillerView();
-    }, [trial.trialId, killerCache]); 
+
 
   // Show a loading indicator while the view is being loaded
   if (!mapView) {
@@ -259,10 +229,6 @@ function TrialCard({ trial }) {
     return <div>Loading...</div>;
   }
 
-
-  if (!killerView) {
-    return <div>Loading...</div>;
-  }
  // mapview, import maps
 
   switch(mapView.image){
@@ -439,21 +405,6 @@ function TrialCard({ trial }) {
         break;
     default:
   }
-  
-  switch(killerView.image){
-    case 'UI/Icons/CharPortraits/K01_TheTrapper_Portrait.png':
-      killerView.image = tra;
-      break;
-    case 'UI/Icons/CharPortraits/Guam/K12_TheClown_Portrait.png':
-      killerView.image = clo;
-      break;
-    case 'UI/Icons/CharPortraits/DLC2/K06_TheShape_Portrait.png':  
-      killerView.image = mic;
-      break;
-    default:
-  }
-
-  console.log("test");
 
   return (
     <div className="col mb-4 center">
@@ -461,8 +412,7 @@ function TrialCard({ trial }) {
       <h4>{mapView.name}</h4>
       <h5 className="card-title">Match Date: {trial.date}</h5>
         <img src={mapView.image} className="card-img-top" alt={trial.image} />
-        <p> Killer: {killerView.name}</p>
-        <img src= {killerView.image} className="card-img-top" alt={trial.image} />
+        <KillerCard trialId={trial.trialId} />
         <p> Survivor: {survivorView1.name}</p>
         <img src={survivorView1.image} className="card-img-top" alt={trial.image} />
         <p> Survivor: {survivorView2.name}</p>

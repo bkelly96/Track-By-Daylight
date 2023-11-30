@@ -2,7 +2,9 @@
     "killer": [
         {
             "id": 1,
-            "url": "../UI/Icons/CharPortraits/K01_TheTrapper_Portrait.png"
+            "name": "Chuckles",
+            "displayName": "The Trapper",
+            "image": ".../UI/Icons/CharPortraits/K01_TheTrapper_Portrait.png"
         }
     ]
 }
