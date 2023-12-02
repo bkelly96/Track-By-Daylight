@@ -7,20 +7,35 @@ import mic from '../UI/Icons/CharPortraits/K06_TheShape_Portrait.png';
 
 const KillerCard = ({ trialId }) => {
   const [killerView, setKillerView] = useState(null);
+  const [killerCache, setKillerCache] = useState({});
 
   useEffect(() => {
     const loadKillerView = async () => {
       try {
         const killerName = await findKillerByTrialId(trialId);
-        const result = await findKillerImageByKillerName(killerName[0].killerName);
-        setKillerView(result);
+
+        // checks to see if the result is already in the cache
+        if (killerCache[killerName]) {
+          setKillerView(killerCache[killerName]);
+        } else {
+          // if not in the cache, it will fetch the result
+          const result = await findKillerImageByKillerName(killerName[0].killerName);
+
+          // updates the cache with the new result
+          setKillerCache((prevCache) => ({
+            ...prevCache,
+            [killerName]: result,
+          }));
+
+          setKillerView(result);
+        }
       } catch (error) {
         console.error('Failed to load Killer view:', error);
       }
     };
 
     loadKillerView();
-  }, [trialId]);
+  }, [trialId, killerCache]); 
 
   if (!killerView) {
     return <div>Loading Killer...</div>;
@@ -30,10 +45,10 @@ const KillerCard = ({ trialId }) => {
     case 'The Trapper':
       killerView.image = tra;
       break;
-    case 'UI/Icons/CharPortraits/Guam/K12_TheClown_Portrait.png':
+    case 'The Clown':
       killerView.image = clo;
       break;
-    case 'UI/Icons/CharPortraits/DLC2/K06_TheShape_Portrait.png':  
+    case 'The Shape':  
       killerView.image = mic;
       break;
     default:

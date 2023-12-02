@@ -5,7 +5,6 @@ import LoginPage from "./components/LoginPage";
 import NotFound from "./components/NotFound";
 import AuthContext from "./contexts/AuthContext"
 import ProfilePage from "./components/ProfilePage";
-import {useQuery, useMutation} from "@tanstack/react-query";
 import Nav from './components/Nav';
 
 

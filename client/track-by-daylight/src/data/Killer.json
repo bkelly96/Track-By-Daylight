@@ -5,6 +5,12 @@
             "name": "Chuckles",
             "displayName": "The Trapper",
             "image": ".../UI/Icons/CharPortraits/K01_TheTrapper_Portrait.png"
+        },
+        {
+            "id": 2,
+            "name": "Clown",
+            "displayName": "The Clown",
+            "image": ".../UI/Icons/CharPortraits/K12_TheClown_Portrait.png"
         }
     ]
 }
