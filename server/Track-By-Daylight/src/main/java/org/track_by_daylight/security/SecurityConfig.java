@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .antMatchers("/refresh_token").authenticated()
                 .antMatchers("/create_account").permitAll()
                 .antMatchers(HttpMethod.GET,
-                        "/api/offerings", "/api/perks", "/api/addons", "/api/items", "/api/tricky/*", "/api/killer/*", "/api/survivor/*", "/api/tricky/survivorName/*", "/api/tricky/killerName/*", "/api/perks/survivor/*", "/api/tricky/maps/*" ).permitAll()
+                        "/api/offerings", "/api/perks", "/api/addons", "/api/items", "/api/tricky/*", "/api/killer/*", "/api/survivor/*", "/api/tricky/survivorName/*", "/api/tricky/killerName/*", "/api/perks/survivor/*", "/api/perks/killer/*","/api/tricky/maps/*" ).permitAll()
                 .antMatchers(HttpMethod.GET,
                         "/api/trials/*", "/api/trials/account/*").hasAnyAuthority("USER", "ADMIN")
 

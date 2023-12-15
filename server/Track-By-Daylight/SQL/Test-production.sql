@@ -213,7 +213,7 @@ begin
     delete from perk;
     alter table perk auto_increment = 1;
     delete from offering;
-    alter table offering auto_increment = 1;
+    alter table offering auto_increment = 1;killerkiller_namekiller_name
 
     
 

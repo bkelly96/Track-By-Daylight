@@ -504,14 +504,14 @@ insert into killer_offering (killer_id, offering_id) values
 (2, 6);
 
 insert into killer_perk(killer_id, perk_id) values
-(1, 17),
-(1, 18),
-(1, 19),
-(1, 20),
-(2, 37),
-(2, 38),
-(2, 39),
-(2, 40);
+(1, 132),
+(1, 133),
+(1, 134),
+(1, 135),
+(2, 136),
+(2, 137),
+(2, 138),
+(2, 139);
 
 insert into killer_add_on(killer_id, add_on_id) values
 (1, 1),

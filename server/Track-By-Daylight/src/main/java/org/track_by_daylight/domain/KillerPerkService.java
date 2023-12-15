@@ -18,4 +18,8 @@ public class KillerPerkService {
     }
 
     public List<KillerPerk> findAll() {return repository.findAll(); }
+
+    public List<KillerPerk> findPerkByKillerId(int killerId) {
+        return repository.findPerkByKillerId(killerId);
+    }
 }

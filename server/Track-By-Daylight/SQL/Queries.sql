@@ -85,4 +85,18 @@ inner join trial t on k.trial_id = t.trial_id
 inner join map m on m.map_id = t.map_id
 where k.trial_id = 1;
 
+##select perks by Survivor id
+select s.survivor_id, s.survivor_name, s.survive, s.is_player, s.trial_id, sp.survivor_perk_id, sp.survivor_id, sp.perk_id, p.perk_id, p.perk_name 
+from survivor s
+inner join survivor_perk sp on s.survivor_id = sp.survivor_id
+inner join perk p on sp.perk_id = p.perk_id
+where s.survivor_id = 1;
+
+##select perks by Killer id
+select k.killer_id, k.killer_name, k.is_player, k.trial_id, kp.killer_perk_id, kp.killer_id, kp.perk_id, p.perk_id, p.perk_name 
+from killer k
+inner join killer_perk kp on k.killer_id = kp.killer_id
+inner join perk p on kp.perk_id = p.perk_id
+where k.killer_id = 1;
+
 ## query independently, add the items by survivor, add the item by killer 1. select survivor, s item, s add on, s perk where match id = 1, reference Agency
