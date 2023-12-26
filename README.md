@@ -136,3 +136,7 @@ As a User I can Record a Trial -
 
 ### Nav Bar Ui [x] (1 Hour Estimate) (.5 Hours Actual)
 
+
+### Next Steps as of 12/26/2023
+see google docs
+
